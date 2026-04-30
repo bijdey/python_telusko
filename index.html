@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>OTP Verification – TaxManager</title>
+  <style>
+    /* ─── Reset for email clients ─── */
+    body, table, td, p, a, li, blockquote {
+      -webkit-text-size-adjust: 100%;
+      -ms-text-size-adjust: 100%;
+    }
+    table, td {
+      mso-table-lspace: 0pt;
+      mso-table-rspace: 0pt;
+    }
+    img {
+      -ms-interpolation-mode: bicubic;
+      border: 0;
+      outline: none;
+      display: block;
+    }
+
+    /* ─── Body ─── */
+    body {
+      margin: 0 !important;
+      padding: 0 !important;
+      background-color: #eef2f7;
+      width: 100% !important;
+    }
+
+    /* ─── Outer wrapper table ─── */
+    .email-wrapper {
+      width: 100%;
+      background-color: #eef2f7;
+    }
+
+    /* ─── Card ─── */
+    .email-card {
+      width: 480px;
+      max-width: 480px;
+      background-color: #ffffff;
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    /* ─── Header ─── */
+    .card-header {
+      background-color: #f0f7fd;
+      padding: 24px 30px;
+      text-align: center;
+    }
+    .card-header img {
+      max-height: 48px;
+      margin: 0 auto;
+    }
+
+    /* ─── Body ─── */
+    .card-body {
+      padding: 32px 36px;
+    }
+
+    /* ─── Title ─── */
+    .card-title {
+      font-family: Segoe UI, Arial, sans-serif;
+      font-size: 22px;
+      font-weight: 700;
+      color: #1a6fad;
+      text-align: center;
+      margin: 0 0 24px 0;
+    }
+
+    /* ─── Text ─── */
+    .text-greeting {
+      font-family: Segoe UI, Arial, sans-serif;
+      font-size: 14px;
+      color: #2c2c2c;
+      margin: 0 0 10px 0;
+    }
+    .text-body {
+      font-family: Segoe UI, Arial, sans-serif;
+      font-size: 14px;
+      color: #444444;
+      line-height: 1.6;
+      margin: 0 0 24px 0;
+    }
+
+    /* ─── OTP Box ─── */
+    .otp-box {
+      font-family: Courier New, Courier, monospace;
+      font-size: 32px;
+      font-weight: bold;
+      color: #111111;
+      text-align: center;
+      letter-spacing: 8px;
+      padding: 14px 20px;
+      border: 2px dashed #2E86C1;
+      border-radius: 8px;
+      background-color: #f0f7fd;
+      margin: 0 auto 24px auto;
+      width: 240px;
+    }
+
+    /* ─── Validity ─── */
+    .validity-note {
+      font-family: Segoe UI, Arial, sans-serif;
+      font-size: 13px;
+      color: #444444;
+      text-align: center;
+      margin: 0 0 20px 0;
+    }
+    .validity-note b {
+      color: #1a6fad;
+    }
+
+    /* ─── Notes ─── */
+    .text-note {
+      font-family: Segoe UI, Arial, sans-serif;
+      font-size: 13px;
+      color: #777777;
+      line-height: 1.6;
+      margin: 0 0 12px 0;
+    }
+
+    /* ─── Divider ─── */
+    .divider {
+      border: none;
+      border-top: 1px solid #ebebeb;
+      margin: 24px 0;
+    }
+
+    /* ─── Footer ─── */
+    .card-footer {
+      font-family: Segoe UI, Arial, sans-serif;
+      font-size: 13px;
+      color: #999999;
+      text-align: center;
+      line-height: 1.7;
+      margin: 0;
+    }
+    .card-footer b {
+      color: #555555;
+    }
+
+    /* ─── Mobile ─── */
+    @media only screen and (max-width: 520px) {
+      .email-card {
+        width: 100% !important;
+      }
+      .card-body {
+        padding: 24px 20px !important;
+      }
+      .otp-box {
+        width: auto !important;
+        font-size: 26px !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Outer wrapper — forces center in all email clients -->
+  <table class="email-wrapper" cellpadding="0" cellspacing="0" border="0" width="100%">
+    <tr>
+      <td align="center" style="padding: 40px 16px;">
+
+        <!-- Card table -->
+        <table class="email-card" cellpadding="0" cellspacing="0" border="0"
+               style="border-radius:12px; box-shadow:0 4px 20px rgba(0,0,0,0.08);">
+
+          <!-- Header -->
+          <tr>
+            <td class="card-header" align="center"
+                style="background-color:#f0f7fd; padding:24px 30px; border-radius:12px 12px 0 0;">
+              <img src="https://taxmanager.in/tm360/images/logo.png"
+                   alt="TaxManager Logo"
+                   style="max-height:48px; display:inline-block;" />
+            </td>
+          </tr>
+
+          <!-- Body -->
+          <tr>
+            <td class="card-body" style="padding:32px 36px; background-color:#ffffff; border-radius:0 0 12px 12px;">
+
+              <h2 class="card-title">OTP Verification</h2>
+
+              <p class="text-greeting">Dear User,</p>
+
+              <p class="text-body">
+                Use the following One-Time Password (OTP) to complete your verification:
+              </p>
+
+              <!-- OTP — replace xxxxxx with server-side value -->
+              <table cellpadding="0" cellspacing="0" border="0" width="100%">
+                <tr>
+                  <td align="center">
+                    <div class="otp-box">
+                      " + HttpContext.Current.Session["otp"].ToString() + @"
+                    </div>
+                  </td>
+                </tr>
+              </table>
+
+              <p class="validity-note">
+                This OTP is valid for <b>5 minutes</b>.
+              </p>
+
+              <p class="text-note">
+                For security reasons, please do not share this OTP with anyone.
+              </p>
+
+              <p class="text-note">
+                If you did not request this, you can safely ignore this email.
+              </p>
+
+              <hr class="divider" />
+
+              <p class="card-footer">
+                Thanks &amp; Regards,<br/>
+                <b>Team TaxManager</b>
+              </p>
+
+            </td>
+          </tr>
+
+        </table>
+        <!-- /Card table -->
+
+      </td>
+    </tr>
+  </table>
+  <!-- /Outer wrapper -->
+
+</body>
+</html>
