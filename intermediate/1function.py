@@ -28,3 +28,30 @@ print(sum(9,8))
 
 
 ## an important concept, how none gets printed,
+
+def addno(x,y):
+    a= x
+    b= y
+    c=a+b
+    print(c)
+
+result= addno(5,7) ## as result is not storing,
+##it will store when we use return not when we use print, see below for more
+print('result is', result) ## result is None
+
+
+
+## so to get value printed as we are storing we need to use the return
+
+def addnum(x,y):
+    a= x
+    b= y
+    c=a+b
+    return c 
+
+result= addnum(5,7) ## as result is not storing,
+##it will store when we use return not when we use print, see below for more
+print('result is', result) ## result is 12
+
+
+
