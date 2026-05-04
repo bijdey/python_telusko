@@ -7,16 +7,20 @@ def add():
     c= a+b
     print(c)
 
-
 ##calling the add function(the hardcorded function)
 add() ##this is the hardcorded function
 
 
+
+
+
 def addition(a,b):
     print(a+b)
-
 ##calling the addition function (dynamic function)
 addition(3,5)
+
+
+
 
 
 
@@ -27,9 +31,13 @@ print(sum(9,8))
 
 
 
+
+
+
 ## an important concept, how none gets printed,
 
 def addno(x,y):
+    ''' Adds 2 Values''' ##this is use to put the description, when we hover on addno online 46 this can be seen and addno
     a= x
     b= y
     c=a+b
@@ -38,6 +46,8 @@ def addno(x,y):
 result= addno(5,7) ## as result is not storing,
 ##it will store when we use return not when we use print, see below for more
 print('result is', result) ## result is None
+
+
 
 
 
