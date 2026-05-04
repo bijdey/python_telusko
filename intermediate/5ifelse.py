@@ -38,3 +38,20 @@ else:
     print('Odd number')
 
 print('bye')
+
+
+
+######
+######
+
+
+## nested if
+
+sal=22
+if sal%2==0:
+    if sal>=5:
+        print('great job')
+    else:
+        print('better luck next time')
+else:
+    print('odd salary')
