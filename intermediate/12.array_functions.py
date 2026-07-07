@@ -45,4 +45,4 @@ print(arrx, arry) #array('i', [43, 2, 54, 645]) array('i', [43, 2, 54, 645])
 
 arra= array('i',[ 534, 32, 23, 32423,])
 arrb= array(arra.typecode, (n for n in arra))
-print(arra, arrb)
+print(arra, arrb) #array('i', [534, 32, 23, 32423]) array('i', [534, 32, 23, 32423])
