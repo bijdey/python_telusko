@@ -12,11 +12,16 @@ arr2= array('i', [33, 4, 55, 89 ,12])
 print(type(arr2)) #output: <class 'array.array'>
 print(arr2) #array('i', [33, 4, 55, 89, 12])
 print(arr2.tolist()) #[33, 4, 55, 89, 12]
-print(arr2.buffer_info())
+print(arr2.buffer_info())  # (4310967664, 5)
 
 
 for n in arr1:
     print(n)  #this will print the value one by 
+
+
+
+
+
     
 
 
