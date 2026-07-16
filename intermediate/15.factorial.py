@@ -6,21 +6,8 @@ def factorial(n):
   print(fact)
 
 factorial(5)
+factorial(0)
+factorial(1)
 
-
-
-
-#another method
-def factno(num):
-  pass
-  res= 1
-  for i in range(1, num+1)
-  res*= i
-
-  return res
-
-
-result= factno(5)
-print(result)
 
 

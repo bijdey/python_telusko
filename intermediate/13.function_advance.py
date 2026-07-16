@@ -41,7 +41,21 @@ def data(name, **kwargs):  # **kwargs collects key-value pairs as dictionary
     print(kwargs)
     
     # Loop through the dictionary
-    for i, j in kwargs.items():
+    for i, j in kwargs.items():  # here i and j are just variables
         print(i, ':', j)
 
-data(name='bijay', age=25, loc='delhi', stack='MERN')
+data(name='bijayy', age=25, loc='delhi', stack='MERN')
+
+
+def bill(customer, **devices):
+    print("Customer:", customer)
+
+    total = 0
+
+    for item, price in devices.items():
+        print(item, ":", price) # here item and price are just variables
+        total += price
+
+    print("Total =", total)
+
+bill("Bijay_pandey", Laptop=60000, Mouse=1000, Keyboard=2000)
